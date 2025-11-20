@@ -1,6 +1,18 @@
+<?php error_reporting(E_ALL);?>
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* dark mode */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 <?php
 $str1 = "Hello, ";
-$str2 = "world!";
+$str2 = "woRld!";
 $num1 = 10;
 $num2 = 20;
 $float1 = 5.5;
@@ -11,7 +23,7 @@ $bool2 = false;
 // String operations
 $concat = $str1 . $str2;
 $length = strlen($str1);
-$substring = substr($str2, 0, 5);
+$substring = substr($str2, 1, 5);
 $uppercase = strtoupper($str1);
 $lowercase = strtolower($str2);
 
@@ -31,35 +43,74 @@ $float_quotient = $float1 / $float2;
 // Assignment operations
 $assign = $num1;
 $assign += 5;
+$assign = $assign + 5;
+
 $assign -= 3;
+$assign = $assign - 3;
+
 $assign *= 2;
+$assign = $assign * 2;
+
 $assign /= 4;
+$assign = $assign / 2;
+
 $assign %= 3;
+$assign = $assign % 3;
 
 // increment and decrement
 $increment = $num1;
+// echo "<br>";
 $increment++;
+// echo "<br>";
+$increment;
 $decrement = $num2;
 $decrement--;
 
+// die();
 
 // Boolean operations
 $and = $bool1 && $bool2;
+// echo (int) $and;
+// echo "<br>";
 $or = $bool1 || $bool2;
+// echo (int) $or;
+// echo "<br>---<br>";
 $not = !$bool1;
+// echo (int) $not;
+// echo "<br>";
 $xor = $bool1 xor $bool2;
+// echo (int) $xor;
+// echo "<br>---<br>";
 $equal = ($num1 == $num2);
+// echo (int) $equal;
+// echo "<br>";
 $identical = ($num1 === $num2);
+// echo (int) $identical;
+// echo "<br>---<br>";
 $not_equal = ($num1 != $num2);
+// echo (int) $not_equal;
+// echo "<br>";
 $not_identical = ($num1 !== $num2);
+// echo (int) $not_identical;
+// echo "<br>---<br>";
 $greater_than = ($num2 > $num1);
+// echo (int) $greater_than;
+// echo "<br>";
 $less_than = ($num1 < $num2);
+// echo (int) $less_than;
+// echo "<br>---<br>";
 $greater_equal = ($num2 >= $num1);
+// echo (int) $greater_equal;
+// echo "<br>";
 $less_equal = ($num1 <= $num2);
+// echo (int) $less_equal;
+// echo "<br>---<br>";
+
+// die();
 
 // Arrays
 $fruits = ["Apple", "Banana", "Cherry"];
-$first_fruit = $fruits[0];
+echo $first_fruit = $fruits[0];
 $fruits[] = "Date";
 array_push($fruits, "Elderberry");
 array_pop($fruits);
@@ -72,9 +123,16 @@ $fruit_exists = in_array("Banana", $fruits);
 $fruit_string = implode(", ", $fruits);
 $fruits_from_string = explode(", ", $fruit_string);
 
+die();
 
+// intro to loop. Only foreach loop
+$colors = ["Red", "Green", "Blue", "Yellow"];
+foreach ($colors as $color) {
+    echo "Color: $color\n";
+}
+echo "<br>---<br>";
 
-
+// die();
 
 // Sample CGPA Calculation for 5 students (from GPAs)
 $studentNamesAndDepts = [
