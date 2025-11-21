@@ -1,16 +1,6 @@
-<?php error_reporting(E_ALL);?>
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        /* dark mode */
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-        }
-    </style>
-<?php
+<?php 
+include '../common/header.php';
+
 $str1 = "Hello, ";
 $str2 = "woRld!";
 $num1 = 10;
@@ -22,12 +12,15 @@ $bool2 = false;
 
 // String operations
 $concat = $str1 . $str2;
+// echo $num1 . $num2;
 $length = strlen($str1);
 $substring = substr($str2, 1, 5);
 $uppercase = strtoupper($str1);
 $lowercase = strtolower($str2);
 
-// Numeric operations
+// die();
+
+// Numeric/Arithmetic operations
 $sum = $num1 + $num2;
 $difference = $num2 - $num1;
 $product = $num1 * $num2;
@@ -41,15 +34,15 @@ $float_product = $float1 * $float2;
 $float_quotient = $float1 / $float2;
 
 // Assignment operations
-$assign = $num1;
-$assign += 5;
-$assign = $assign + 5;
+$assign = $num1; // 10
+$assign += 5; // 15
+$assign = $assign + 5; // 20
 
-$assign -= 3;
-$assign = $assign - 3;
+$assign -= 3; // 17
+$assign = $assign - 3; // 14
 
-$assign *= 2;
-$assign = $assign * 2;
+$assign *= 2; // 28
+$assign = $assign * 2; // 56
 
 $assign /= 4;
 $assign = $assign / 2;
@@ -83,9 +76,12 @@ $xor = $bool1 xor $bool2;
 // echo "<br>---<br>";
 $equal = ($num1 == $num2);
 // echo (int) $equal;
+
+// echo '6' == 6; // true
 // echo "<br>";
 $identical = ($num1 === $num2);
 // echo (int) $identical;
+// echo '6' === 6; // false
 // echo "<br>---<br>";
 $not_equal = ($num1 != $num2);
 // echo (int) $not_equal;
@@ -109,60 +105,94 @@ $less_equal = ($num1 <= $num2);
 // die();
 
 // Arrays
-$fruits = ["Apple", "Banana", "Cherry"];
-echo $first_fruit = $fruits[0];
+$fruits = ["Apple", "Banana", "Cherry fruit"];
+$first_fruit = $fruits[0];
+//print_r($fruits);
+//echo "<br>";
 $fruits[] = "Date";
+//print_r($fruits);
+//echo "<br>";
 array_push($fruits, "Elderberry");
+//print_r($fruits);
+//echo "<br>";
 array_pop($fruits);
+//print_r($fruits);
+//echo "<br>";
 array_shift($fruits);
+//print_r($fruits);
+//echo "<br>";
 array_unshift($fruits, "Fig");
+//print_r($fruits);
+// echo "<br>";
 $fruit_count = count($fruits);
 $fruit_keys = array_keys($fruits);
 $fruit_values = array_values($fruits);
 $fruit_exists = in_array("Banana", $fruits);
-$fruit_string = implode(", ", $fruits);
-$fruits_from_string = explode(", ", $fruit_string);
+$fruit_string = implode("; ", $fruits);
+// $plain_string = $fruits[0] . "; " . $fruits[1] 
+//                 . "; " . $fruits[2] . "; " . $fruits[3];
+$fruits_from_string = explode("; ", $fruit_string);
 
-die();
+// array_chunk($fruits, 2);
 
-// intro to loop. Only foreach loop
-$colors = ["Red", "Green", "Blue", "Yellow"];
-foreach ($colors as $color) {
-    echo "Color: $color\n";
-}
-echo "<br>---<br>";
+// print_r($fruits);
+// echo "<br>";
+// var_dump($fruit_string);
+// echo "<br>";
+// print_r($fruits_from_string);
+
+$assoc_array =  [
+    "age" => 25,
+    "city" => "New York",
+    "name" => "John Doe",
+];
+
+$simple_array = [
+    25,
+    "John Doe",
+    "New York"
+];
+
+$assoc_keys = array_keys($assoc_array);
+$simple_keys = array_keys($simple_array);
+
+// print_r($assoc_keys);
+// echo "<br>";
+// print_r($simple_keys);
+// echo "<br>---<br>";
+
+$assoc_values = array_values($assoc_array);
+$simple_values = array_values($simple_array);
+
+// print_r($assoc_values);
+// echo "<br>";
+// print_r($simple_values);
+// echo "<br>---<br>";
 
 // die();
 
-// Sample CGPA Calculation for 5 students (from GPAs)
-$studentNamesAndDepts = [
-    ["Alice", "Computer Science"],
-    ["Bob", "Mathematics"],
-    ["Charlie", "Physics"],
-    ["Diana", "Chemistry"],
-    ["Ethan", "Biology"]
+// array dimensions
+$singleDimensionalArray = [1, 2, 3, 4, 5];
+// echo $singleDimensionalArray[4];
+
+$twoDimensionalArray = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ];
 
-$grades = [
-    [3.5, 3.7, 3.8, 4.0],
-    [3.0, 3.2, 3.4, 3.6],
-    [2.5, 2.7, 2.9, 3.1],  
-    [3.8, 3.9, 4.0, 3.7],
-    [2.0, 2.2, 2.4, 2.6]
+// echo $twoDimensionalArray[1][2];
+
+$threeDimensionalArray = [
+    [
+        [1, 2],
+        [3, 4]
+    ],
+    [
+        [5, 6],
+        [7, 8]
+    ]
 ];
 
-$cgpas = [];
-foreach ($grades as $student_grades) {
-    $total = array_sum($student_grades);
-    $cgpa = $total / count($student_grades);
-    $cgpas[] = $cgpa;
-}
-
-// Display cgpa for each student
-foreach ($studentNamesAndDepts as $index => $student) {
-    $name = $student[0];
-    $dept = $student[1];
-    $cgpa = number_format($cgpas[$index], 2);
-    echo "Name: $name, Department: $dept, CGPA: $cgpa\n";
-}
-?>
+// echo "<pre>";
+// print_r($threeDimensionalArray[1]);
