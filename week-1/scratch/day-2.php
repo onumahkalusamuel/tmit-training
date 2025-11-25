@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../common/header.php';
 
 $str1 = "Hello, ";
@@ -10,13 +10,32 @@ $float2 = 2.3;
 $bool1 = true;
 $bool2 = false;
 
+// echo $num1;
 // String operations
-$concat = $str1 . $str2;
+$concat = $str1 . $str2 . $num1 . $num2;
+// echo $concat;
 // echo $num1 . $num2;
+
+// string functions
 $length = strlen($str1);
-$substring = substr($str2, 1, 5);
+$substring = substr($str2, 3, 2);
 $uppercase = strtoupper($str1);
 $lowercase = strtolower($str2);
+
+/*
+
+
+"woRld!"
+
+w => 0
+o => 1
+R => 2
+l => 3
+d => 4
+! => 5
+
+
+*/
 
 // die();
 
@@ -26,8 +45,8 @@ $difference = $num2 - $num1;
 $product = $num1 * $num2;
 $quotient = $num2 / $num1;
 $modulus = $num2 % $num1;
-$power = pow($num1, 2);
-$sqrt = sqrt($num2);
+$power = pow($num1, 4);
+$sqrt = sqrt(81);
 $float_sum = $float1 + $float2;
 $float_diff = $float1 - $float2;
 $float_product = $float1 * $float2;
@@ -81,9 +100,10 @@ $equal = ($num1 == $num2);
 // echo "<br>";
 $identical = ($num1 === $num2);
 // echo (int) $identical;
-// echo '6' === 6; // false
+// var_dump('6' === 6); // false
 // echo "<br>---<br>";
 $not_equal = ($num1 != $num2);
+// var_dump($not_equal);
 // echo (int) $not_equal;
 // echo "<br>";
 $not_identical = ($num1 !== $num2);
@@ -105,24 +125,30 @@ $less_equal = ($num1 <= $num2);
 // die();
 
 // Arrays
-$fruits = ["Apple", "Banana", "Cherry fruit"];
+$fruits = ["Apple", "Banana"];
 $first_fruit = $fruits[0];
-//print_r($fruits);
-//echo "<br>";
+// print_r($fruits);
+// echo "<br>";
+/*
+on this array ($fruits)
+in the position of the next item ([])
+add this new value (= "Date")
+*/
 $fruits[] = "Date";
-//print_r($fruits);
-//echo "<br>";
+// print_r($fruits);
+// echo "<br>";
+
 array_push($fruits, "Elderberry");
-//print_r($fruits);
-//echo "<br>";
+// print_r($fruits);
+// echo "<br>";
 array_pop($fruits);
-//print_r($fruits);
-//echo "<br>";
+// print_r($fruits);
+// echo "<br>";
 array_shift($fruits);
-//print_r($fruits);
-//echo "<br>";
+// print_r($fruits);
+// echo "<br>";
 array_unshift($fruits, "Fig");
-//print_r($fruits);
+// print_r($fruits);
 // echo "<br>";
 $fruit_count = count($fruits);
 $fruit_keys = array_keys($fruits);
@@ -147,11 +173,15 @@ $assoc_array =  [
     "name" => "John Doe",
 ];
 
+// $assoc_array['city'];
+
 $simple_array = [
     25,
     "John Doe",
     "New York"
 ];
+
+$simple_array[1];
 
 $assoc_keys = array_keys($assoc_array);
 $simple_keys = array_keys($simple_array);
@@ -173,7 +203,7 @@ $simple_values = array_values($simple_array);
 
 // array dimensions
 $singleDimensionalArray = [1, 2, 3, 4, 5];
-// echo $singleDimensionalArray[4];
+// echo $singleDimensionalArray[0];
 
 $twoDimensionalArray = [
     [1, 2, 3],
@@ -181,7 +211,7 @@ $twoDimensionalArray = [
     [7, 8, 9]
 ];
 
-// echo $twoDimensionalArray[1][2];
+// echo $twoDimensionalArray[1][1];
 
 $threeDimensionalArray = [
     [
@@ -193,6 +223,8 @@ $threeDimensionalArray = [
         [7, 8]
     ]
 ];
+
+// echo $threeDimensionalArray[0][1][1];
 
 // echo "<pre>";
 // print_r($threeDimensionalArray[1]);

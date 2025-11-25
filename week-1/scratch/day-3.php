@@ -67,6 +67,7 @@ foreach ($colors as $color) {
 
 // die();
 
+
 // Sample CGPA Calculation for 5 students (from GPAs)
 $studentResults = [
     [
@@ -96,6 +97,9 @@ $studentResults = [
     ]
 ];
 
+//print_r($studentResults[1]['gpas']);
+
+//die();
 /*
 echo array_sum([1,2,3,4,5,6]);
 echo "<br>";
